@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.svg"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css"/>
+    <!--    firebase-ui-->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/css/styles.css" rel="stylesheet"/>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/">talkDishes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/write">Write</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/map">Map</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/video">Video</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/dev">API</a></li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <!--guest-->
+                        <a class="guest nav-link px-lg-3 py-3 py-lg-4"
+                           href="#"
+                           data-bs-toggle="dropdown" aria-expanded="false" id="dropdownLogin">Login</a>
+                        <ul class="guest dropdown-menu" aria-labelledby="dropdownLogin">
+                            <li id="firebaseui-auth-container"></li>
+                        </ul>
+                        <!--user-->
+                        <a class="user d-none nav-link px-lg-3 py-3 py-lg-4"
+                           href="#"
+                           data-bs-toggle="dropdown" aria-expanded="false" id="dropdownUser"><span class="user-name"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownUser">
+                            <li><img class="user-avatar rounded-circle shadow-1-strong me-3" width="80"
+                                     height="80"></li>
+                            <li><h2 class="user-name"></h2></li>
+                            <li><p class="user-contact"></p></li>
+                            <li><a class="dropdown-item" onclick="firebase.auth().signOut()">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="masthead" style="background-image: url('/image/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>talk <span style="font-size: 20px">about</span> Dishes</h1>
+                    <!--                    <span class="subheading">A Blog Theme by Start Bootstrap</span>-->
+                    <form action="/" method="get" onkeyup="blankCheck()">
+                        <input type="text" name="text" placeholder="what you want to eat?" required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="/post?id=165">
+                        <h2 class="post-title">Vịt quay</h2>
+                        <h3 class="post-subtitle"><span>#vitquay </span></h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <span href="#">Hiếu Phạm</span>
+                        <span>on 2021-09-12</span>
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4"/>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="/post?id=175">
+                        <h2 class="post-title">Bánh mì dân tổ</h2>
+                        <h3 class="post-subtitle"><span>#banhmidanto </span><span>#3h </span></h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <span href="#">Hiếu Phạm</span>
+                        <span>on 2021-09-14</span>
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4"/>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="p2">
+    <ul style="display: flex; list-style-type: none; justify-content: center">
+        <li style="padding: 10px; border-bottom: 2px solid #212529"><a class="is-active" href="#">1</a>
+        </li>
+    </ul>
+</div>
+
+<footer class="border-top">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/hieuppham/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/p.trg.hieu/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/hieuppham">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; <span>talkDishes</span> 2021
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+<div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- Core theme JS and other scripts-->
+    <script src="/js/scripts.js"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <!--login-firebse-->
+    <script src="/js/login.js"></script>
+</div>
+</body>
+</html>
